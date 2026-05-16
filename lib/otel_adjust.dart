@@ -1,0 +1,8 @@
+// Licensed under the Apache License, Version 2.0
+// Copyright 2025, Mindful Software LLC, All rights reserved.
+
+/// Dartastic OpenTelemetry bridge for Adjust mobile attribution.
+library;
+
+export 'src/otel_adjust.dart';
+export 'src/otel_adjust_suppression.dart';
