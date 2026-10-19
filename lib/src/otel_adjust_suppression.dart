@@ -5,11 +5,14 @@ import 'dart:async';
 
 const _key = #dartastic_otel_libs_adjust_suppress;
 
+/// Whether instrumentation is suppressed in the current zone.
 bool adjustInstrumentationSuppressed() => Zone.current[_key] == true;
 
+/// Runs [body] without creating spans for calls made inside it.
 T runWithoutAdjustInstrumentation<T>(T Function() body) =>
     runZoned(body, zoneValues: {_key: true});
 
+/// Runs [body] without creating spans for calls made inside it.
 Future<T> runWithoutAdjustInstrumentationAsync<T>(
   Future<T> Function() body,
 ) =>

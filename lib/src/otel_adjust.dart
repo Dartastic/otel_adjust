@@ -10,6 +10,7 @@ const _tracerName = 'dartastic_otel_libs_adjust';
 APITracer _tracer() => OTelAPI.tracerProvider().getTracer(_tracerName);
 
 class AdjustResult {
+  /// Creates a result.
   const AdjustResult({
     this.appToken,
     this.environment,
@@ -83,8 +84,13 @@ class AdjustResult {
   final int? statusCode;
 }
 
+/// What a traced call returned: the value for the caller plus fields
+/// recorded on the span.
 class AdjustCallResult<T> {
+  /// Creates a call result.
   const AdjustCallResult({required this.value, this.result});
+
+  /// The value returned to the caller.
   final T value;
   final AdjustResult? result;
 }
